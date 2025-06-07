@@ -5,10 +5,9 @@ import Form from 'react-bootstrap/Form';
 export const AddCustomer = (props) =>{
 
     return(
-                <div
-      className="modal show" 
-      style={{ display: 'block', position: 'initial' }} >
-            <Modal.Dialog >
+                <div >
+
+    <Modal show={true} size='lg'>
         <Modal.Header closeButton onClick={()=>props.hide()}>
           <Modal.Title>Customer Details</Modal.Title>
         </Modal.Header>
@@ -32,7 +31,7 @@ export const AddCustomer = (props) =>{
           <Button variant="secondary" onClick={()=>props.hide()}>Close</Button>
           <Button variant="primary">Save changes</Button>
         </Modal.Footer>
-            </Modal.Dialog>
+          </Modal>
       </div> 
     )
 }
