@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import { AddCustomer } from './AddCustomer';
 import { useState } from 'react';
+import { CustomerDetails } from './CustomerDetails';
 
 export const Customer =()=>{
     
@@ -16,8 +17,10 @@ export const Customer =()=>{
           <Button  variant="success" onClick={addCustomer}>Add Customer</Button>
 </div>
 <div>
-   {showCustomerModal && ( <AddCustomer hide={()=>setShowCustomerModal(false)} />)}
+    <CustomerDetails/>
 </div>
+   {showCustomerModal && ( <AddCustomer hide={()=>setShowCustomerModal(false)} />)}
+
             </div>
         </div>
     )
