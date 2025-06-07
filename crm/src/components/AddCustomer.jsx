@@ -1,7 +1,9 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-export const AddCustomer = () =>{
+export const AddCustomer = (props) =>{
+
     return(
                 <div
       className="modal show"
@@ -11,10 +13,23 @@ export const AddCustomer = () =>{
           <Modal.Title>Customer Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Modal body text goes here.</p>
+        <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Customer ID</Form.Label>
+        <Form.Control  placeholder="Enter ID" />
+      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Customer Name</Form.Label>
+        <Form.Control type='text' placeholder="Enter name" />
+      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Customer Email</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+      </Form.Group>
+            </Form>    
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
+          <Button variant="secondary" onClick={()=>props.hide()}>Close</Button>
           <Button variant="primary">Save changes</Button>
         </Modal.Footer>
             </Modal.Dialog>
