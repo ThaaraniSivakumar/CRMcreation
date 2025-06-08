@@ -4,11 +4,16 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 
 export const AddCustomer = (props) =>{
-    const [customerId , setCustomerID] = useState([])
-    const [customerName , setCustomerName] = useState([])
-    const [customerEmail , setCustomerEmail] = useState([])
+    const [customerId , setCustomerId] = useState('')
+    const [customerName , setCustomerName] = useState('')
+    const [customerEmail , setCustomerEmail] = useState('')
       const handleSave = () => {
-    props.save(customerId);
+        const customer = {
+      customerId: customerId,
+      customerName: customerName,
+      customerEmail: customerEmail,
+    };
+    props.save(customer);
     props.hide()
   };
  
@@ -22,15 +27,15 @@ export const AddCustomer = (props) =>{
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Customer ID</Form.Label>
-        <Form.Control  placeholder="Enter ID" onClick={(e)=> setCustomerID(e,EventTarget.value)}/>
+        <Form.Control  placeholder="Enter ID" onChange={(e)=> setCustomerId(e.target.value)}/>
       </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Customer Name</Form.Label>
-        <Form.Control type='text' placeholder="Enter name" />
+        <Form.Control type='text' placeholder="Enter name" onChange={(e)=> setCustomerName(e.target.value)}/>
       </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Customer Email</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="email" placeholder="Enter email" onChange={(e)=> setCustomerEmail(e.target.value)}/>
       </Form.Group>
             </Form>    
         </Modal.Body>

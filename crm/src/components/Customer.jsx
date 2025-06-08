@@ -10,6 +10,9 @@ export const Customer =()=>{
     const addCustomer = ()=>{
       setShowCustomerModal(true)
     }
+      const saveCustomer = (customer) => {
+    setCustomerDetails([...customerDetails, customer]); 
+  };
     return (
         <div className='container'>
             <div className='d-flex flex-column gap-5' >
@@ -21,7 +24,7 @@ export const Customer =()=>{
 </div>
    {showCustomerModal && ( <AddCustomer
     hide={()=>setShowCustomerModal(false)} 
-    save={()=>setCustomerDetails([])}
+    save={saveCustomer}
     />)}
 
             </div>

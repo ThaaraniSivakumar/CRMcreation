@@ -4,7 +4,6 @@ export const CustomerDetails = ({details}) =>{
 
 
     return(
-        <div>
           <Table striped bordered >
       <thead>
         <tr>
@@ -14,17 +13,14 @@ export const CustomerDetails = ({details}) =>{
         </tr>
       </thead>
       <tbody>
-        {details.map((customer)=>{
+        {details.map((customer)=>(
             <tr key={customer.customerId}>
                <td>{customer.customerId}</td>
                <td>{customer.customerName}</td>
                <td>{customer.customerEmail}</td>
             </tr>
-        })
-
-        }
+        ))}
       </tbody>
     </Table>
-        </div>
     )
 }
