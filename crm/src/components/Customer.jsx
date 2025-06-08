@@ -6,20 +6,23 @@ import { CustomerDetails } from './CustomerDetails';
 export const Customer =()=>{
     
     const[showCustomerModal , setShowCustomerModal]=useState(false)
+    const[customerDetails , setCustomerDetails] = useState([])
     const addCustomer = ()=>{
       setShowCustomerModal(true)
     }
-
     return (
-        <div className='container '>
+        <div className='container'>
             <div className='d-flex flex-column gap-5' >
 <div className='d-flex justify-content-end my-2'  >
           <Button  variant="success" onClick={addCustomer}>Add Customer</Button>
 </div>
 <div>
-    <CustomerDetails/>
+    <CustomerDetails details={customerDetails}/>
 </div>
-   {showCustomerModal && ( <AddCustomer hide={()=>setShowCustomerModal(false)} />)}
+   {showCustomerModal && ( <AddCustomer
+    hide={()=>setShowCustomerModal(false)} 
+    save={()=>setCustomerDetails([])}
+    />)}
 
             </div>
         </div>

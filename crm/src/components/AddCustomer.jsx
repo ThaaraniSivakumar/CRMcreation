@@ -1,12 +1,19 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 
 export const AddCustomer = (props) =>{
-
+    const [customerId , setCustomerID] = useState([])
+    const [customerName , setCustomerName] = useState([])
+    const [customerEmail , setCustomerEmail] = useState([])
+      const handleSave = () => {
+    props.save(customerId);
+    props.hide()
+  };
+ 
     return(
-                <div >
-
+    <div >
     <Modal show={true} size='lg'>
         <Modal.Header closeButton onClick={()=>props.hide()}>
           <Modal.Title>Customer Details</Modal.Title>
@@ -15,7 +22,7 @@ export const AddCustomer = (props) =>{
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Customer ID</Form.Label>
-        <Form.Control  placeholder="Enter ID" />
+        <Form.Control  placeholder="Enter ID" onClick={(e)=> setCustomerID(e,EventTarget.value)}/>
       </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Customer Name</Form.Label>
@@ -29,7 +36,7 @@ export const AddCustomer = (props) =>{
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={()=>props.hide()}>Close</Button>
-          <Button variant="primary">Save changes</Button>
+          <Button variant="primary" onClick={handleSave}>Save changes</Button>
         </Modal.Footer>
           </Modal>
       </div> 

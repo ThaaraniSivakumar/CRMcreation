@@ -1,6 +1,8 @@
 import Table from 'react-bootstrap/Table';
 
-export const CustomerDetails = () =>{
+export const CustomerDetails = ({details}) =>{
+
+
     return(
         <div>
           <Table striped bordered >
@@ -12,11 +14,15 @@ export const CustomerDetails = () =>{
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-        </tr>
+        {details.map((customer)=>{
+            <tr key={customer.customerId}>
+               <td>{customer.customerId}</td>
+               <td>{customer.customerName}</td>
+               <td>{customer.customerEmail}</td>
+            </tr>
+        })
+
+        }
       </tbody>
     </Table>
         </div>
